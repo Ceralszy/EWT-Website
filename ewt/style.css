@@ -1,0 +1,431 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(226,49,42);
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    padding: 8px 8px;
+    border-radius: 5px;
+}
+
+.menu-btn:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.logo-center img {
+    height: 50px;
+    width: auto;
+}
+
+.cart-btn {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+.cart-btn:hover {
+    background: rgba(255,255,255,0.2);
+}
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #1e3c72;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+    z-index: 1000;
+}
+
+.sidebar a {
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.2s;
+}
+
+.sidebar a:hover {
+    background-color: #e2312b;
+    padding-left: 35px;
+}
+
+.sidebar .close-btn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.sidebar hr {
+    margin: 10px;
+    border-color: #555;
+}
+
+.hero {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    text-align: center;
+    padding: 60px 20px;
+    color: white;
+}
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+.categories {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    padding: 20px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    background: rgba(226,49,42);
+}
+.category {
+    padding: 10px 20px;
+    background: #e2312b;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease color 0.3s ease;
+}
+.category:hover {
+    background: #fffcfd;
+    color: black
+}
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.product-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.product-info {
+    padding: 15px;
+}
+.product-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.product-price {
+    color: #e2312b;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 14px;
+    margin-left: 5px;
+}
+.add-btn {
+    background: #e2312b;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.add-btn:hover {
+    background: #c73e56;
+}
+.cart-sidebar {
+    position: fixed;
+    right: -350px;
+    top: 0;
+    width: 350px;
+    height: 100%;
+    background: white;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding: 20px;
+    z-index: 1000;
+    overflow-y: auto;
+}
+.cart-sidebar.open {
+    right: 0;
+}
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.close-cart {
+    cursor: pointer;
+    font-size: 24px;
+}
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+.cart-total {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 2px solid #ddd;
+}
+.checkout-btn {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+.modal.active {
+    display: flex;
+}
+.modal-content {
+    background: white;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    padding: 20px;
+}
+.close-modal {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+@media (max-width: 768px) {
+    .cart-sidebar {
+        width: 100%;
+        right: -100%;
+    }
+}
+
+.bigPage{
+    display:flex;
+    flex-direction:row;
+
+}
+
+.profileSidebar{
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    justify-content:flex-start;
+    min-width:30vw; /* Check appendix*/
+    height: 90vh;
+    background-color:#d9d9d9;
+    font-size:30px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.profilePic{
+    width: 60%;          /* Takes up exactly 60% of whatever width the sidebar is */
+    aspect-ratio: 1 / 1; /* Forces the height to always perfectly match the width */
+    margin:10%;
+    margin-top:10%;
+    border-radius: 200px 200px 200px 200px;
+    background-color: black;
+
+}
+
+.profileText{
+    margin-bottom:5%;
+
+}
+
+.pSbtn{
+    gap: 0px;
+    align-self: flex-start;
+    background: none; /* Kills the gray box */
+    border: none; /* Kills the weird border */
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition:background-color 0.3 ease;
+    text-align:right;
+
+    /*Aligning the Text. Without these the text will be unaligned*/
+    /* 2. Force the button to span across the entire width of the sidebar */
+    width: 100%; 
+    height: 10%;
+    
+    /* 3. Push the text inside the button to the left side */
+    text-align: left; 
+    
+    /* 4. Add left padding so the text doesn't touch the very edge of the sidebar */
+    padding-left: 40px;
+    transition: all 0.3s ease;
+}
+
+/* Optional: Add a nice hover effect! */
+.pSbtn:hover {
+    margin-left:2px;
+    background-color: rgb(255, 88, 88,0.75); /* Changes to a lighter, active red */
+    cursor: pointer; /* Turns the mouse arrow into a clicking hand */
+}
+
+.AccountInfoPage{
+    background-color: #fcfcfc;
+    width:100%;
+    
+}
+
+.simpleText{
+    margin-top:4%;
+    padding-left:10px;
+}
+
+.AccountInfoCard {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: space-around;
+    margin:10% 20%;
+    min-height:60%;
+
+    background-color: #ffffff;
+    
+    /* Subtle, modern drop shadow */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.12);
+    
+    /* Optional: round the corners slightly to match a modern look */
+    border-radius: 8px; 
+    padding: 30px;
+}
+
+/* 1. Style the Form Groups to align things nicely */
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Pushes label to left, input to right */
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.form-group label {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 16px;
+    color: #333333;
+    width: 100px; /* Gives labels a fixed width so inputs line up perfectly */
+}
+
+/* 2. Strip the ugly borders off the text inputs */
+.form-group input {
+    background-color: #e0e0e0; /* The light gray background from your design */
+    border: none;              /* Removes the default black border outline */
+    border-radius: 4px;        /* Slightly rounds the corners */
+    padding: 12px 15px;        /* Adds space inside so the text doesn't touch the edges */
+    width: 100%;               /* Lets it fill the rest of the form row */
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    outline: none;             /* Prevents default browser focus outlines */
+}
+
+/* 3. Style the Save Button to match your red pill design */
+.saveBtn {
+    background-color: #e52e2e; /* Vibrant red */
+    color: white;
+    border: none;
+    border-radius: 25px;       /* Makes it a pill shape */
+    padding: 12px 35px;        /* Elegant, wide padding */
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    display: block;
+    margin: 30px auto 0 auto;  /* Centers the button at the bottom of the card */
+    transition: background 0.2s ease;
+}
+
+/* Subtle hover effect for the button */
+.saveBtn:hover {
+    background-color: #c42424;
+}
+
+/* Adds the gap between the description and the specs */
+.desc-text {
+    margin-bottom: 15px; 
+}
+
+/* Creates the hanging indent layout for the specs */
+.specs-container {
+    display: flex;
+    align-items: flex-start; /* Keeps 'Specs:' at the top even if the text wraps to 3 lines */
+    gap: 8px; /* The space between the word 'Specs:' and the actual specs text */
+    line-height: 1.4; /* Makes multi-line text easier to read */
+}
+
+/* Ensures the specs text doesn't push the 'Specs:' label out of shape */
+.specs-container span {
+    flex: 1; 
+}
+/*APPENDIX*/
+/*?vh : vh stands for Viewport Height. 1vh = 1% of the screen's height. 100vh = 100% of the screen's height (the full height of the screen).*/
+/* ?vw : stands for Viewport Width (100vw = full width of the screen). */

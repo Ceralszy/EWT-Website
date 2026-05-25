@@ -1,0 +1,3 @@
+-Make a Profile Webpage website.
+- Change a few fonts.
+- Maybe take a look at the header, change a bit.

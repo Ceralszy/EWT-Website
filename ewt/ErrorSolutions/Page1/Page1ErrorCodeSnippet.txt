@@ -1,0 +1,80 @@
+<html>
+	<head> <Title> EWT Technology </Title> </head>
+	<link rel = "stylesheet" href = "CSSStyle1.css">
+	<body>
+	<div class = "website">
+	<div class = "nav-bar">
+		<div class = "menu-container">
+			<div class = "hamburger-option">
+					<div class = "line"></div> <!-- make hamburger option here -->
+					<div class = "line"></div>
+					<div class = "line"></div>
+			</div>
+			<div class = "shortText"><p>Menu</p></div> <!-- FOUND ERROR -->
+		</div>
+			<div class = "EWT">
+					<!-- EWT short logo here. NOT TEXT. -->
+			</div>
+			<div class= "Social-Medias">
+					<a href = "# class ="whatsapp">
+					</a>
+					<a href = "#" class = "facebook">
+					</a>
+					<a href = "#" class = "instagram">
+					</a>
+						
+			</div>
+	</div>
+
+	<div class = "promotions-banner">
+	<p> PLACEHOLDER </p>
+	</div>
+	
+	<div class = "switch-banner">
+			<div class = "product-type-switch">
+				<button class = "ui-btn">PC</button><button class = "ui-btn">Laptop</button><button class = "ui-btn">Phones</button><button class = "ui-btn">Custom PC Build</button>				
+			</div>
+
+	</div>
+
+	<div class = "Product-Display">
+			<form class= "search-container">
+				<input type = "search" name = "search" placeholder="Search..." class = "search-input"> </input> <button type = "submit" class = "search-btn"> Search 					</button>
+			</form>
+			<div class = "Shopping-Cart">
+				<a href = "#checkCart" class = "cart">
+					<!-- Image of a shopping cart stroller here -->
+				</a>
+			</div>
+			<div class = "Product-Display">
+				<div class = "product-card" id = "Product-1> 
+					<a href ="#product1"></a>
+				</div>
+	
+				<div class = "product-card" id = "Product-2> 
+					<a href ="#product2"></a>
+				</div>
+
+				<div class = "product-card" id = "Product-3> 
+					<a href ="#product3"></a>
+				</div>
+				<div class = "product-card" id = "Product-4"> 
+					<a href ="#product4"></a>
+				</div>
+			</div>
+			
+	</div>
+
+	<div class="product-details-sidebar">
+        <h2>Product Name</h2>
+        <p>Specs and details go here...</p>
+        <button class="close-btn">Close</button>
+    	</div>
+	</div>
+	</body>
+	
+
+</html>
+
+<!-- Here's a tip for creating a skeleton and not knowing what to wrap in a div class. If your rectangle has mismatched colours then that's when you start fucking like, create more divs idiot.-->
+<!-- By default rectangles wants to stack on top of each other from top to bottom. So like, with each sibling <div>, you can visualize that as like a fucking rectangle ontop of each other. -->

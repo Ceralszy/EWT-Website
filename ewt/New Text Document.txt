@@ -1,0 +1,31 @@
+
+		<div class="product-showcase-container">
+			<div class="product-container">
+				<div class = "product-image">
+						<!-- Image Product here, see if there's anyway we can check it-->
+				</div>
+
+				<div class = "right-column">
+					<div class ="text-container">
+						<div class = "Product-Name-Header1">
+							<span>PRODUCT NAME HERE</span>
+						</div>
+						<div class="Product-Description">
+							<span>PRODUCT DESCRIPTION HERE</span>
+						</div>
+					</div>
+
+					<div class="Reviews">
+						<!-- Get the reviews from Facebook-->
+						<h3 class = "review-text">REVIEWS</h3>
+						<div class = "review-box" id = "review-box1"></div> 
+						<div class = "review-box" id = "review-box2"></div>
+						<div class = "review-box" id = "review-box3"></div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+		</div>

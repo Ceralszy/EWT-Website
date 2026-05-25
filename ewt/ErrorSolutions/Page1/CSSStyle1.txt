@@ -1,0 +1,49 @@
+.website{
+
+}
+
+.nav-bar{
+    height:60px;
+    background-color: red;
+    display: flex;
+    justify-content:space-between;
+    position:relative;
+    align-items:center;
+
+}
+
+.menu-container{
+    display: inline-flex;
+    flex-direction:row;
+    padding:0px 10px; /* Adjust this to control the size of the highlight */   
+    gap:4px;
+    border-radius: 4px; /* Makes the highlight look professional */
+
+}
+.menu-container:hover{
+   background-color: #de6262; /* Changes to a lighter, active red */
+    cursor: pointer; /* Turns the mouse arrow into a clicking hand */
+
+}
+
+.hamburger-option{
+    display: flex;
+    justify-content: center;
+    flex-direction:column;
+}
+
+.line{
+    border: 1px solid white;
+    width: 20px;
+    height: 2px;
+    background-color: white;
+    margin:2px;
+    
+
+}
+
+.shortText{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:white;
+    font-size: 18px;
+}

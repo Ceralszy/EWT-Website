@@ -1,0 +1,6 @@
+PROBLEM: When hovering over hamburger-option/menu, the entire rectangle gets highlighted instead of the small rectangle of the contents.
+
+Look at the error snippet of the html file.
+Notice how Menu is enclosed in html element <p> and </p>
+
+<p> is essentially a paragraph that takes up 16 px of height space. This is why when hovering over the menu and hamburger icon, it highlighted the entire rectangle instead.

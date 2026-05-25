@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head> 
+            <meta charset = "UTF-8">
+            <meta name = "viewport" content = "width=device-width,initial-scale= 1.0">
+            <link rel="stylesheet" href="style.css">
+            <link rel="icon" type="image/png" href="EWT.png">
+            <title> My Profile Page</title>
+        
+        
+        </head>
+
+        <body>
+            <div class = "header-container">
+                <button class = "menu-btn" onclick = "openSideBar()">☰ Menu</button>
+                <div class="logo-center">
+                    <img src="EWT.png" alt="EWT Logo" style="width: 50px; height: auto;"> <!-- Change this later, display it in CSS instead -->
+                </div>
+                <a href="javascript:void(0)" onclick="openCart()" class="cart-btn">🛒 Cart</a>
+            </div>
+            <!-- LeftContainer and RightContainer In one Container-->
+             
+            <div class="bigPage">
+            <!--- SideBarWithOptionsHere-->
+
+            <div class="profileSidebar">
+                <div class="profilePic"></div>
+                <p class = "profileText"> MY PROFILE </p>
+    
+                <button type="button" class="pSbtn" id="button1" onclick="myAccInfo()">Account Info</button> <!-- href in button element is invalid -->
+                <button type="button" class="pSbtn" id="button2" onclick="ShopCart()">Shopping Cart</button>
+                <button type="button" class="pSbtn" id="button3" onclick="MyOrders()">My Orders</button>
+                <button type="button" class="pSbtn" id="button4" onclick="SignOut()">Sign Out</button>
+            </div>
+
+            <!--AccountInfoPage-->
+
+            <div class ="AccountInfoPage"> 
+                <h2 class = "simpleText">MY ACCOUNT INFORMATION</h2>
+                <hr><!-- Horizontal Rule. Creates a horizontal line across the container-->
+                <form class="AccountInfoCard" id="accountForm"> <!--Any inputs placed inside this tag are bundled together and sent for Javascript or Database-->
+        
+                    <div class="form-group">
+                        <label for="username">Username</label> <!-- An input label, the "for" syntax links the label Username for the id = "username"-->
+                        <input type="text" id="username" name="username" placeholder="Enter username"> <!--tells browser to display standard, single-line text box. -->
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter email"> <!-- type = "email" automatically detects if the input is missing an @-->
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" name="address" placeholder="Enter address">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="extra-field"></label>
+                        <input type="text" id="extra-field" name="extra-field">
+                    </div>
+
+                    <button type="submit" class="saveBtn">SAVE</button>
+                </form>
+            </div>
+        </div>
+
+         <!--MyOrderPage-->
+
+            <div class ="MyOrderPage" id="myOrderSection" style="display: none;"> 
+                <h2 class = "simpleText">MY ORDERS</h2>
+                <hr>
+                
+                <div class = "orderlist">
+                    
+                    <div class= "order-item">
+                        <div class="product-image-placeholder"></div>
+
+                        <div class="product-details">
+                            <h3 class="product-title">Computer</h3>
+                            <p class="product-variant">Blue</p>
+                            <p class="product-quantity">1 X</p>
+                        </div>
+
+                        <!--placeholder for pricing
+                        <div class="product-price">
+                            RM6700.00
+                        </div> -->
+                        </div>
+                </div>
+
+                <div class="order-summary-bar">
+                    <div class="total-text">TOTAL: </div>
+                    <button type="button" class="buy-btn">BUY</button>
+                </div>
+
+            </div>
+
+                
+            </div>    
+
+            <script>
+                function myAccInfo() {
+                    // Show account details, hide order details
+                    document.getElementById('accountSection').style.display = 'block';
+                    document.getElementById('myOrderSection').style.display = 'none';
+                }
+
+                function MyOrders() {
+                    // Hide account details, show order details
+                    document.getElementById('accountSection').style.display = 'none';
+                    document.getElementById('myOrderSection').style.display = 'block';
+                }
+
+                // Simple stubs so clicking other buttons doesn't cause errors
+                function ShopCart() { console.log("Shopping Cart clicked"); }
+                function SignOut() { console.log("Sign Out clicked"); }
+                function openSideBar() { console.log("Sidebar opened"); }
+                function openCart() { console.log("Cart opened"); }
+            </script>
+        </body>
+    </html>
