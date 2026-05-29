@@ -5,19 +5,77 @@
         <title>EWT Technology - Cart</title> 
         <link rel="stylesheet" href="CSSStyle1.css">
         <link rel="icon" type="image/png" href="EWT.png">
+        <style>
+            /* THE MISSING SIDEBAR CSS */
+            .sidebar {
+                height: 100%;
+                width: 0; /* Hidden by default */
+                position: fixed; /* Stays in place when scrolling */
+                z-index: 9999; /* Sits on top of everything */
+                top: 0;
+                left: 0;
+                background-color: #213555; /* The EWT Blue */
+                overflow-x: hidden; /* Prevents horizontal scroll */
+                padding-top: 60px;
+                transition: 0.4s ease; /* The smooth slide animation */
+                box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+            }
+            
+            .sidebar a {
+                padding: 15px 20px 15px 30px;
+                text-decoration: none;
+                font-size: 1.2em;
+                color: #ffffff;
+                display: block;
+                transition: 0.2s;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+            }
+
+            .sidebar a:hover {
+                background-color: rgba(255,255,255,0.1);
+            }
+
+            .sidebar .close-btn {
+                position: absolute;
+                top: 10px;
+                right: 20px;
+                font-size: 36px;
+                border-bottom: none;
+                padding: 0;
+            }
+
+            .sidebar hr {
+                border: 0;
+                height: 1px;
+                background: rgba(255,255,255,0.2);
+                margin: 10px 0;
+            }
+        </style>
     </head>
     
     <body>
+        <div id="sidebar" class="sidebar">
+            <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">&times;</a>
+            <a href="index.html">🏠 Home</a>
+            <a href="index.html">📦 Products</a>
+            <a href="index.html">🖥️ Custom PC</a>
+            <hr>
+            <a href="profilePage.html">👤 My Account</a>
+            <a href="#" onclick="alert('Logged out'); closeSidebar();">🚪 Logout</a>
+            <a href="#" onclick="alert('To be continued^^'); closeSidebar();">🔑 Login</a>
+            <a href="#" onclick="alert('Blum connect lgi :P'); closeSidebar();">📝 Register</a>
+        </div>
+
         <div class="website">
             
             <div class="nav-bar">
-                <div class="menu-container">
-                    <div class="hamburger-option" onclick="window.location.href='index.html'">
+                <div class="menu-container" onclick="openSidebar()" style="cursor: pointer;">
+                    <div class="hamburger-option">
                         <div class="line"></div> 
                         <div class="line"></div>
                         <div class="line"></div>
-                    </div>
-                    <div class="shortText">Menu</div>
+                     </div>
+                     <div class="shortText" style="cursor: pointer;">Menu</div>
                 </div>
                 
                 <div class="EWT">
@@ -49,9 +107,21 @@
                             </tbody>
                     </table>
 
-                    <div id="empty-state" class="empty-state-container" style="display: none; text-align: center; padding: 40px;">
-                        <p style="font-size: 1.2em; margin-bottom: 20px;">Your cart is empty</p>
-                        <button class="btn-secondary" onclick="window.location.href='index.html'">Continue shopping</button>
+                    <div id="empty-state" class="empty-state-container" style="display: none; text-align: center; padding: 60px 20px;">
+                        <p style="font-size: 1.5em; color: #555; margin-bottom: 25px; font-weight: 500;">Your cart is empty</p>
+                        <button class="btn-secondary" onclick="window.location.href='index.html'" style="
+                            background-color: #eee;
+                            color: #333;
+                            border: none;
+                            padding: 12px 30px;
+                            font-size: 1em;
+                            font-weight: bold;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            transition: background 0.2s ease-in-out;
+                        " onmouseover="this.style.backgroundColor='#ddd';" onmouseout="this.style.backgroundColor='#eee';">
+                         Continue shopping
+                        </button>
                     </div>
 
                     <div class="cart-total-section" id="cartTotalSection">
@@ -140,10 +210,7 @@
 
             function processFinalCheckout() {
                 if(cart.length === 0) return;
-                alert("Order placed successfully! EWT Technology will process your request.");
-                cart = []; 
-                localStorage.setItem('cart', JSON.stringify(cart));
-                window.location.href = 'index.html'; 
+                window.location.href = 'checkout.html'; 
             }
 
             window.addEventListener('storage', function(event) {
@@ -154,6 +221,15 @@
             });
 
             renderFullCart();
+            
+            // Sidebar Control Functions
+            function openSidebar() { 
+                 document.getElementById("sidebar").style.width = "280px"; 
+            }
+
+            function closeSidebar() { 
+                 document.getElementById("sidebar").style.width = "0"; 
+            }
         </script>
     </body>
 </html>

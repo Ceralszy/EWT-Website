@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <meta charset="UTF-8">
+        <title>EWT Technology - Checkout</title> 
+        <link rel="stylesheet" href="CSSStyle1.css">
+        <link rel="icon" type="image/png" href="EWT.png">
+        <style>
+            /* THE SIDEBAR CSS */
+            .sidebar {
+                height: 100%;
+                width: 0; /* Hidden by default */
+                position: fixed; /* Stays in place when scrolling */
+                z-index: 9999; /* Sits on top of everything */
+                top: 0;
+                left: 0;
+                background-color: #213555; /* The EWT Blue */
+                overflow-x: hidden; /* Prevents horizontal scroll */
+                padding-top: 60px;
+                transition: 0.4s ease; /* The smooth slide animation */
+                box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+            }
+            
+            .sidebar a {
+                padding: 15px 20px 15px 30px;
+                text-decoration: none;
+                font-size: 1.2em;
+                color: #ffffff;
+                display: block;
+                transition: 0.2s;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+            }
+
+            .sidebar a:hover {
+                background-color: rgba(255,255,255,0.1);
+            }
+
+            .sidebar .close-btn {
+                position: absolute;
+                top: 10px;
+                right: 20px;
+                font-size: 36px;
+                border-bottom: none;
+                padding: 0;
+            }
+
+            .sidebar hr {
+                border: 0;
+                height: 1px;
+                background: rgba(255,255,255,0.2);
+                margin: 10px 0;
+            }
+
+            /* Checkout Specific Layout */
+            .checkout-grid {
+                display: flex;
+                gap: 40px;
+                margin-top: 20px;
+                flex-wrap: wrap;
+            }
+            .checkout-form-section {
+                flex: 2;
+                min-width: 300px;
+            }
+            .checkout-summary-section {
+                flex: 1;
+                min-width: 300px;
+                background-color: #f9f9f9;
+                padding: 25px;
+                border-radius: 8px;
+                border: 1px solid #eee;
+                align-self: flex-start;
+            }
+            
+            /* Form Styling */
+            .section-title {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin: 30px 0 15px 0;
+                color: #333;
+            }
+            .form-row {
+                display: flex;
+                gap: 15px;
+                margin-bottom: 15px;
+            }
+            .form-group {
+                flex: 1;
+                margin-bottom: 15px;
+            }
+            .form-control {
+                width: 100%;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 1em;
+                box-sizing: border-box;
+                font-family: inherit;
+            }
+            .form-control:focus {
+                outline: none;
+                border-color: #e2312b;
+            }
+
+            /* Selection Boxes (Delivery & Payment) */
+            .method-selector {
+                display: flex;
+                gap: 15px;
+                margin-bottom: 20px;
+            }
+            .method-box {
+                flex: 1;
+                border: 2px solid #ddd;
+                padding: 15px;
+                border-radius: 8px;
+                cursor: pointer;
+                text-align: center;
+                font-weight: 500;
+                transition: all 0.2s;
+            }
+            .method-box.active {
+                border-color: #e2312b;
+                background-color: #fffafa;
+                color: #e2312b;
+            }
+
+            /* Order Summary Items */
+            .summary-item {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                margin-bottom: 15px;
+            }
+            .summary-item img {
+                width: 60px;
+                height: 60px;
+                object-fit: cover;
+                border-radius: 8px;
+                border: 1px solid #ddd;
+            }
+            .summary-totals {
+                margin-top: 20px;
+                padding-top: 20px;
+                border-top: 1px solid #ddd;
+            }
+            .totals-row {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 10px;
+                color: #555;
+            }
+            .totals-row.grand-total {
+                font-size: 1.3em;
+                font-weight: bold;
+                color: #333;
+                margin-top: 15px;
+            }
+            
+            /* Payment Box */
+            .payment-box {
+                border: 1px solid #ddd;
+                padding: 20px;
+                border-radius: 8px;
+                background: #fff;
+                text-align: center;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div id="sidebar" class="sidebar">
+            <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">&times;</a>
+            <a href="index.html">🏠 Home</a>
+            <a href="index.html">📦 Products</a>
+            <a href="index.html">🖥️ Custom PC</a>
+            <hr>
+            <a href="profilePage.html">👤 My Account</a>
+            <a href="#" onclick="alert('Logged out'); closeSidebar();">🚪 Logout</a>
+            <a href="#" onclick="alert('To be continued^^'); closeSidebar();">🔑 Login</a>
+            <a href="#" onclick="alert('Blum connect lgi :P'); closeSidebar();">📝 Register</a>
+        </div>
+
+        <div class="website">
+            <div class="nav-bar">
+                <div class="menu-container" onclick="openSidebar()" style="cursor: pointer;">
+                    <div class="hamburger-option">
+                        <div class="line"></div> 
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="shortText" style="cursor: pointer;">Menu</div>
+                </div>
+                
+                <div class="EWT">
+                    <a href="index.html" class="link"></a>
+                </div>
+                
+                <div class="Social-Medias">
+                    <a href="#" class="whatsapp"></a>
+                    <a href="#" class="facebook"></a>
+                    <a href="#" class="instagram"></a>        
+                </div>
+            </div>
+
+            <main class="cart-container">
+                <div class="cart-wrapper">
+                    <h1 class="cart-title">Checkout</h1>
+                    
+                    <div class="checkout-grid">
+                        
+                        <div class="checkout-form-section">
+                            
+                            <div class="section-title" style="margin-top: 0;">Contact</div>
+                            <div class="form-group">
+                                <input type="email" id="emailInput" class="form-control" placeholder="Email address" required>
+                            </div>
+
+                            <div class="section-title">Delivery Method</div>
+                            <div class="method-selector">
+                                <div class="method-box active" id="btnDelivery" onclick="selectDeliveryMethod('delivery')">
+                                    🚚 Delivery
+                                </div>
+                                <div class="method-box" id="btnPickup" onclick="selectDeliveryMethod('pickup')">
+                                    🏬 In-store Pickup
+                                </div>
+                            </div>
+
+                            <div id="shippingForm">
+                                <div class="section-title">Shipping Address</div>
+                                <div class="form-row">
+                                    <input type="text" id="fName" class="form-control" placeholder="First name">
+                                    <input type="text" id="lName" class="form-control" placeholder="Last name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="address" class="form-control" placeholder="Address">
+                                </div>
+                                <div class="form-row">
+                                    <input type="text" id="postcode" class="form-control" placeholder="Postcode">
+                                    <input type="text" id="city" class="form-control" placeholder="City">
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" id="phone" class="form-control" placeholder="Phone number">
+                                </div>
+                            </div>
+
+                            <div class="section-title">Payment</div>
+                            <div class="payment-box">
+                                <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px;">
+                                    <strong><span style="color:#e2312b;">◉</span> QR Code Payment</strong>
+                                    <span style="background: #eee; padding: 3px 8px; border-radius: 4px; font-size: 0.8em;">Secure</span>
+                                </div>
+                                <p style="color: #666; font-size: 0.9em; margin-bottom: 15px;">Scan the DuitNow QR code using your preferred banking or e-wallet app to complete your purchase.</p>
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=EWT_Tech_Payment" alt="QR Code" style="border: 5px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.1); border-radius: 10px;">
+                            </div>
+
+                        </div>
+
+                        <div class="checkout-summary-section">
+                            <div class="section-title" style="margin-top: 0; margin-bottom: 20px;">Order Summary</div>
+                            
+                            <div id="summaryItemsContainer">
+                                </div>
+
+                            <div class="summary-totals">
+                                <div class="totals-row">
+                                    <span>Subtotal</span>
+                                    <span id="summarySubtotal">RM 0</span>
+                                </div>
+                                <div class="totals-row">
+                                    <span>Shipping</span>
+                                    <span id="summaryShipping">RM 15.00</span>
+                                </div>
+                                <div class="totals-row grand-total">
+                                    <span>Total</span>
+                                    <span id="summaryTotal">RM 0</span>
+                                </div>
+                            </div>
+
+                            <button class="btn-primary" onclick="submitOrder()" style="width: 100%; margin-top: 25px; padding: 15px; font-size: 1.1em; border: none; cursor: pointer;">Place Order</button>
+                        </div>
+
+                    </div>
+                </div>
+            </main>
+
+        </div> 
+
+        <script>
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let deliveryFee = 15; // Default delivery fee in RM
+
+            // Redirect back if cart is empty
+            if (cart.length === 0) {
+                window.location.href = 'cart.html';
+            }
+
+            function renderSummary() {
+                const container = document.getElementById('summaryItemsContainer');
+                const subtotalElem = document.getElementById('summarySubtotal');
+                const shippingElem = document.getElementById('summaryShipping');
+                const totalElem = document.getElementById('summaryTotal');
+
+                let subtotal = 0;
+
+                // Build the item list
+                container.innerHTML = cart.map(item => {
+                    const itemTotal = item.price * item.quantity;
+                    subtotal += itemTotal;
+                    
+                    return `
+                        <div class="summary-item">
+                            <div style="position: relative;">
+                                <img src="${item.image || 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=100'}" onerror="this.src='https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=100';">
+                                <span style="position: absolute; top: -5px; right: -5px; background: #666; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 0.8em; font-weight: bold;">
+                                    ${item.quantity}
+                                </span>
+                            </div>
+                            <div style="flex: 1; font-size: 0.9em; line-height: 1.4;">
+                                <strong>${item.name}</strong>
+                            </div>
+                            <div style="font-weight: bold;">
+                                RM ${(item.price * item.quantity).toLocaleString()}
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                // Calculate Totals
+                const grandTotal = subtotal + deliveryFee;
+
+                subtotalElem.textContent = `RM ${subtotal.toLocaleString()}`;
+                shippingElem.textContent = deliveryFee === 0 ? 'Free' : `RM ${deliveryFee.toLocaleString()}`;
+                totalElem.textContent = `RM ${grandTotal.toLocaleString()}`;
+            }
+
+            // Handles toggling between Delivery and Pickup
+            function selectDeliveryMethod(method) {
+                const btnDelivery = document.getElementById('btnDelivery');
+                const btnPickup = document.getElementById('btnPickup');
+                const shippingForm = document.getElementById('shippingForm');
+
+                if (method === 'delivery') {
+                    btnDelivery.classList.add('active');
+                    btnPickup.classList.remove('active');
+                    shippingForm.style.display = 'block'; // Show address form
+                    deliveryFee = 15; // Add shipping cost
+                } else {
+                    btnPickup.classList.add('active');
+                    btnDelivery.classList.remove('active');
+                    shippingForm.style.display = 'none'; // Hide address form
+                    deliveryFee = 0; // Free pickup
+                }
+                
+                // Recalculate totals based on new shipping fee
+                renderSummary();
+            }
+
+            // Simulates placing the order
+            function submitOrder() {
+                const email = document.getElementById('emailInput').value;
+                if (!email) {
+                    alert("Please enter your email address to receive the receipt.");
+                    return;
+                }
+
+                alert("Thank you! Your order has been placed. Please complete your QR code payment.");
+                
+                // Empty the cart and send them home
+                cart = [];
+                localStorage.setItem('cart', JSON.stringify(cart));
+                window.location.href = 'index.html';
+            }
+
+            // Initialize the page
+            renderSummary();
+            
+            // Sidebar Control Functions
+            function openSidebar() { 
+                 document.getElementById("sidebar").style.width = "280px"; 
+            }
+
+            function closeSidebar() { 
+                 document.getElementById("sidebar").style.width = "0"; 
+            }
+        </script>
+    </body>
+</html>
